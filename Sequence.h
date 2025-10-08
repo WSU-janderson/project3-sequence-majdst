@@ -68,7 +68,16 @@ public:
 
     void erase(std::size_t position, std::size_t count); //remove the count item
 
-    
+    // for releasing memory
+    void clear();
+    //checking if the sequence is empty or have elements
+    void empty() const;
+    // overall size of the sequence
+    std::size_t size() const;
+/*
+ * In here, we should have access to private part, friend gives access to that part.
+ */
+    friend std::ostream& operator<<(std::ostream& os, const Sequence& s);
 
 
 
