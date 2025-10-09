@@ -25,7 +25,7 @@ private:
     //last node pointer
     SequenceNode* tail_ = nullptr;
     // initialize the number of elements
-    std::size_t size = 0;
+    std::size_t size_ = 0;
 
     /*
      *This is a helper function to prevent to repeat the for loop everytime we are
