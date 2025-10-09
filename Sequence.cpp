@@ -38,11 +38,45 @@ Sequence::~Sequence(){clear();}
  * remember: this part create a deep copy, if I just copy the head/tail--> they will
  * point to the same memory as others-->if other delete, list will break.
  */
-Sequence::Sequence(const Sequence& other) : head_(0), tail_(0), size_(0) {
+Sequence::Sequence(const Sequence& other) : head_(nullptr), tail_(nullptr), size_(0) {
 
     SequenceNode* current = other.head_;
     while (current != nullptr) {
         push_back(current->item);
         current = current->next;
     }
+}
+//deep copy -->rhs
+Sequence& Sequence::operator = (const Sequence& rhs) {
+    if (this== &rhs){return *this;}
+
+    //destroy current content
+    clear();
+
+    // build new content via deep copy
+    SequenceNode* current = rhs.head_;
+
+    while (current != nullptr) {
+        push_back(current->item);
+        current = current->next;
+    }
+
+    return *this;
+}
+
+//memory release by delete item
+void Sequence::clear() {
+    SequenceNode* current = head_;
+
+    while (current != nullptr) {
+        //delete current before storing next
+
+        SequenceNode* next_node = current->next;
+        delete current;
+        current = next_node;
+    }
+
+    head_ = nullptr;
+    tail_ = nullptr;
+    size_ = 0;
 }
