@@ -71,7 +71,7 @@ public:
     // for releasing memory
     void clear();
     //checking if the sequence is empty or have elements
-    void empty() const;
+    bool empty() const;
     // overall size of the sequence
     std::size_t size() const;
 /*

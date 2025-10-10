@@ -80,3 +80,41 @@ void Sequence::clear() {
     tail_ = nullptr;
     size_ = 0;
 }
+
+// At index-->access or modify
+string& Sequence::operator[](size_t position) {
+    return nodeAt(position)->item;
+}
+
+//first element check
+string Sequence::front() const {
+    if (empty()) {
+        throw runtime_error("Front Empty");
+    }else{return head_->item;}
+}
+//last element
+string Sequence::back() const {
+    if (empty()) {
+        throw runtime_error("Back empty");
+    }else{tail_->item;}
+}
+
+bool Sequence::empty() const{return size_ == 0;}
+size_t Sequence::size() const{return size_;}
+
+// append item to sequence
+void Sequence::push_back(string item) {
+    SequenceNode* n = new SequenceNode(item);
+
+    if (empty()) {
+        head_ = tail_ = n;
+    }else {
+        n->before = tail_; //new node-->current tail
+        tail_->next=n;
+        tail_=n; //update tail
+    }
+    size_++;
+}
+
+
+
