@@ -5,11 +5,11 @@
 
 class SequenceNode {
 
-public: //made it public to give access
-    std::string item;
+public:
     //double linked list
-    SequenceNode* next = nullptr; // next node pleaseee
-    SequenceNode* before = nullptr; // before node pleasee
+    std::string item;
+    SequenceNode* next = nullptr;
+    SequenceNode* before = nullptr;
 
     SequenceNode() = default;
 
@@ -20,12 +20,12 @@ public: //made it public to give access
 //next class--> sequence class
 class Sequence {
 private:
-    // first node pointer
-    SequenceNode* head_ = nullptr;
-    //last node pointer
-    SequenceNode* tail_ = nullptr;
-    // initialize the number of elements
-    std::size_t size_ = 0;
+
+    SequenceNode* head_ = nullptr;// first node pointer
+
+    SequenceNode* tail_ = nullptr;  //last node pointer
+
+    std::size_t size_ = 0;// number of elements
 
     /*
      *This is a helper function to prevent to repeat the for loop everytime we are
