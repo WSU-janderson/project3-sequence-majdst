@@ -230,6 +230,26 @@ void Sequence::erase(size_t position, size_t count) {
 
     size_ -= count;
 }
+
+//output
+std:: ostream& operator << (std::ostream& os, const Sequence& s) {
+
+    os << '<';
+    SequenceNode* p = s.head_;
+    size_t i = 0;
+
+    while (p) {
+        if ( i++ > 0){ os << ", ";}
+
+        if (p->item.empty() && s.size() > 0) {
+            os << "?!";
+        } else{ os << p->item;}
+
+        p = p->next;
+    }
+    os << '<';
+    return os;
+}
 /*
  * https://youtube.com/shorts/dfyM-yRTAZY?si=b8nFoXlH5d7hvV3S
  * https://youtube.com/shorts/fyLKvGt0ZrM?si=8KTVXvis77roIcoN
