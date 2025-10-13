@@ -1,3 +1,14 @@
+/*
+ * Majid Dousti - CS5100 - Data Structure and Algorithm
+ * Project 3 : Linked Sequence Data Structure
+ * First time using object-oriented programming concept
+ * Use Pointer and Memory Management methods
+ */
+
+
+
+
+
 #include "Sequence.h"
 #include <stdexcept>
 #include <ostream>
